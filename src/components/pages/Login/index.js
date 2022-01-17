@@ -20,7 +20,7 @@ export default class Login extends Component {
         };
         const requestInfo = {
             method: 'POST',
-            body: data,
+            body: JSON.stringify(data),
             headers: new Headers({
                 'Content-Type': 'application/json'
             }),
@@ -28,6 +28,7 @@ export default class Login extends Component {
         fetch(url, requestInfo)
         .then(response => {
             if(response.ok){
+                console.log("O login foi realizado com sucesso.")
                 return response.headers.get("Authorization")
             }
             throw new Error("Login inválido")
@@ -35,6 +36,7 @@ export default class Login extends Component {
             localStorage.setItem('token', token);
         }).catch( e => {
             this.setState({message: e.message})
+            console.log(this.email, this.password)
         });
     }
 
@@ -53,11 +55,11 @@ export default class Login extends Component {
                 <Form>
                     <FormGroup>
                         <Label for="email"> Email</Label>
-                        <Input type="text" id="email" placeholder="Informe o seu email: " onChange={e => this.email = e.target.value}/>
+                        <Input type="text" id="email" onChange={e => this.email = e.target.value} placeholder="Informe o seu email: " />
                     </FormGroup> 
                     <FormGroup>
                         <Label for="password"> Senha</Label>
-                        <Input type="password" id="password" placeholder="Informe a sua senha: " onChange={e => this.password = e.target.value}/>
+                        <Input type="password" id="password" onChange={e => this.password = e.target.value} placeholder="Informe a sua senha: " />
                     </FormGroup> 
                     <Button color="primary" block onClick={this.signIn}> Entrar </Button>
                 </Form>
