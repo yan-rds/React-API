@@ -3,10 +3,23 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import Header from "../../Header";
 
 export default class Landing extends Component {
+/*
+  save = (lead) => {
+    const url = "http://localhost:8080/leads";
+    let data = {
+      nome: lead.nome,
+      email: lead.email,
+      observacoes: lead.observacoes,
+    };
+    const requestInfo = {
+      method: "POST",
+      body: "",
+    };
+    fetch(url, requestInfo);
+  };
+*/
 
-
-
-    render() {
+  render() {
     return (
       <div>
         <Header title="Landing Page" />
