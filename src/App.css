@@ -1,6 +1,15 @@
 .App{
     display: flex;
-    align-items: center;
+    align-items: right;
     justify-content: center;
-    margin-top: 100px;
+    margin: 30px 225px 30px 90px;
+    overflow: hidden;
+    opacity:0.9;
+}
+
+body{
+    background-size:100%;
+    background-image:url(img/logoLead.png) ;
+    background-Position: left;
+    background-Repeat: no-repeat;
 }
